@@ -1,0 +1,11 @@
+[package]
+name = "LN_Server"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+axum = "0.8.6"
+tokio = { version = "1.48.0", features = ["full"] }
+serde = { version = "1.0", features = ["derive"] }
+tracing-subscriber = "0.3"
+cln-rpc = "0.5.0"
