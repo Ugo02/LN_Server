@@ -1,17 +1,4 @@
 //! LNURL HTTP server for Lightning Network (Core Lightning).
-//!
-//! This server implements LNURL flows as specified in the LUD (LNURL Definitions) specs:
-//! - **LNURL-channel**: `GET /request-channel` (optionally with `remoteid` for one-shot open),
-//!   and `GET /open-channel` for the two-step flow.
-//! - **LNURL-withdraw**: `GET /request-withdraw` (optionally with `pr` for one-shot pay),
-//!   and `GET /withdraw` for the two-step flow.
-//! - **LNURL-auth** (LUD-04): `GET /lnurl-auth` and `GET /lnurl-auth-callback` for
-//!   challenge/response authentication.
-//!
-//! The server talks to a local Core Lightning node via its Unix socket RPC. Single-use
-//! challenge tokens (k1) are stored in memory; configure `IP_ADDRESS` and `CALLBACK_URL`
-//! for the address clients use to reach this server (e.g. WireGuard IP or VPS). The
-//! RPC socket path can be overridden with the `CLN_RPC_SOCKET` environment variable.
 
 use axum::{
     extract::{Query, State},
